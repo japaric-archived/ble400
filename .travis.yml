@@ -4,14 +4,11 @@ matrix:
   include:
     - env: TARGET=thumbv6m-none-eabi
       rust: nightly
-      addons:
-        apt:
-          sources:
-            - debian-sid
-          packages:
-            - gcc-arm-none-eabi
 
-before_install: set -e
+before_install:
+  - set -e
+  - export GCC_DIR=$HOME/gcc-arm-none-eabi-6-2017-q1-update
+  - export PATH=$PATH:$GCC_DIR/bin
 
 install:
   - sh ci/install.sh
