@@ -1,0 +1,11 @@
+[target.thumbv6m-none-eabi]
+rustflags = [
+  "-C", "link-arg=--specs=nano.specs",
+  "-C", "link-arg=-Tlink.x",
+  "-C", "link-arg=-mabi=aapcs",
+  "-C", "link-arg=-mcpu=cortex-m0",
+  "-C", "link-arg=-mthumb",
+]
+
+[build]
+target = "thumbv6m-none-eabi"
