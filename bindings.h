@@ -9,6 +9,9 @@
 #undef __APPLE__
 #endif
 
+#include "app_timer.h"
+#include "app_uart.h"
+#include "app_util_platform.h"
 #include "boards.h"
 #include "nrf_gpio.h"
 #include "shims.h"

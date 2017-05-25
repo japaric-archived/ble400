@@ -31,11 +31,15 @@ fn main() {
     config.file("components/libraries/log/src/nrf_log_frontend.c");
     config.file("components/libraries/util/app_error.c");
     config.file("components/libraries/util/app_error_weak.c");
+    config.file("components/libraries/fifo/app_fifo.c");
     config.file("components/libraries/timer/app_timer.c");
+    config.file("components/libraries/uart/app_uart_fifo.c");
     config.file("components/libraries/util/app_util_platform.c");
     config.file("components/libraries/hardfault/hardfault_implementation.c");
-    config.file("./components/boards/boards.c");
+    config.file("components/boards/boards.c");
+    config.file("components/drivers_nrf/common/nrf_drv_common.c");
     config.file("components/drivers_nrf/clock/nrf_drv_clock.c");
+    config.file("components/drivers_nrf/uart/nrf_drv_uart.c");
     config.file("components/toolchain/gcc/gcc_startup_nrf51.S");
     config.file("components/toolchain/system_nrf51.c");
     config.file(
@@ -49,8 +53,11 @@ fn main() {
     config.include("components/drivers_nrf/common");
     config.include("components/drivers_nrf/delay");
     config.include("components/drivers_nrf/hal");
+    config.include("components/drivers_nrf/uart");
+    config.include("components/libraries/fifo");
     config.include("components/libraries/log");
     config.include("components/libraries/log/src");
+    config.include("components/libraries/timer");
     config.include("components/libraries/util");
     config.include("components/softdevice/common/softdevice_handler");
     config.include("components/softdevice/s130/headers");
