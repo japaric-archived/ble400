@@ -62,4 +62,6 @@ fn main() {
     println!("cargo:rerun-if-changed=build.rs");
     println!("cargo:rerun-if-changed=custom_board.h");
     println!("cargo:rerun-if-changed=sdk_config.h");
+    println!("cargo:rerun-if-changed=shims.c");
+    println!("cargo:rerun-if-changed=shims.h");
 }
