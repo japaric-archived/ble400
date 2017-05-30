@@ -7,7 +7,7 @@ version = "0.1.0"
 gcc = "0.3.46"
 
 [dependencies]
-cty = "0.1.0"
+cty = "0.1.5"
 
 [profile.release]
 debug = true
