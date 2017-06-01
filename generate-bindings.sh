@@ -20,7 +20,7 @@ main() {
                            -DNRF_SD_BLE_API_VERSION=2 \
                            -DS130 \
                            -DSOFTDEVICE_PRESENT \
-                           -DSWI_DISBLE0 \
+                           -DSWI_DISABLE0 \
                            -I . \
                            -I components/ble/ble_advertising \
                            -I components/ble/ble_services/ble_nus \
