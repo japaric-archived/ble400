@@ -16,14 +16,14 @@ fn main() {
     config.flag("-fno-builtin");
     config.flag("--short-enums");
 
-    config.define("BOARD_CUSTOM", None);
-    config.define("SOFTDEVICE_PRESENT", None);
-    config.define("NRF51", None);
-    config.define("S130", None);
     config.define("BLE_STACK_SUPPORT_REQD", None);
-    config.define("SWI_DISABLE0", None);
+    config.define("BOARD_CUSTOM", None);
+    config.define("NRF51", None);
     config.define("NRF51822", None);
     config.define("NRF_SD_BLE_API_VERSION", Some("2"));
+    config.define("S130", None);
+    config.define("SOFTDEVICE_PRESENT", None);
+    config.define("SWI_DISABLE0", None);
 
     config.file("shims.c");
 
@@ -35,26 +35,38 @@ fn main() {
     config.file("components/libraries/timer/app_timer.c");
     config.file("components/libraries/uart/app_uart_fifo.c");
     config.file("components/libraries/util/app_util_platform.c");
+    config.file("components/libraries/fstorage/fstorage.c");
     config.file("components/libraries/hardfault/hardfault_implementation.c");
     config.file("components/boards/boards.c");
     config.file("components/drivers_nrf/common/nrf_drv_common.c");
     config.file("components/drivers_nrf/clock/nrf_drv_clock.c");
     config.file("components/drivers_nrf/uart/nrf_drv_uart.c");
+    config.file("components/libraries/bsp/bsp.c");
+    config.file("components/ble/common/ble_advdata.c");
+    config.file("components/ble/ble_advertising/ble_advertising.c");
+    config.file("components/ble/common/ble_conn_params.c");
     config.file("components/toolchain/gcc/gcc_startup_nrf51.S");
     config.file("components/toolchain/system_nrf51.c");
+    config.file("components/ble/ble_services/ble_nus/ble_nus.c");
     config.file(
         "components/softdevice/common/softdevice_handler/softdevice_handler.c",
     );
 
     // FIXME sdk_config.h shouldn't be hardcoded
     config.include("."); // sdk_config.h
+    config.include("components/ble/common");
+    config.include("components/boards");
     config.include("components/device");
     config.include("components/drivers_nrf/clock");
     config.include("components/drivers_nrf/common");
     config.include("components/drivers_nrf/delay");
     config.include("components/drivers_nrf/hal");
     config.include("components/drivers_nrf/uart");
+    config.include("components/libraries/bsp");
+    config.include("components/libraries/button");
+    config.include("components/libraries/experimental_section_vars");
     config.include("components/libraries/fifo");
+    config.include("components/libraries/fstorage");
     config.include("components/libraries/log");
     config.include("components/libraries/log/src");
     config.include("components/libraries/timer");

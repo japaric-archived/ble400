@@ -10,6 +10,16 @@ extern "C" fn start(
 }
 
 #[lang = "panic_fmt"]
-extern "C" fn panic_fmt() -> ! {
+extern "C" fn panic_fmt(
+    args: ::core::fmt::Arguments,
+    file: &'static str,
+    line: u32,
+) -> ! {
+    hprint!("panicked at '");
+    ::cortex_m_semihosting::io::write_fmt(args);
+    hprintln!("', {}:{}", file, line);
+
+    ::bkpt();
+
     loop {}
 }
